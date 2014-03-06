@@ -16,5 +16,4 @@ public class RootController {
         model.addAttribute("version", version);
         return "index";
     }
-
 }

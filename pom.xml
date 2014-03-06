@@ -3,18 +3,21 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sqli.techtuesday</groupId>
-    <artifactId>AngularBootstrapSpringBoot</artifactId>
-    <version>0.1.0</version>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.0.0.RC4</version>
     </parent>
 
+    <groupId>com.sqli.techtuesday</groupId>
+    <artifactId>AngularBootstrapSpringBoot</artifactId>
+    <version>0.1.0</version>
+
     <properties>
         <start-class>com.sqli.techtuesday.boot.Application</start-class>
+
+        <!-- Spring boot parent use this property to setup maven compiler plugin -->
+        <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
@@ -28,6 +31,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -74,14 +78,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

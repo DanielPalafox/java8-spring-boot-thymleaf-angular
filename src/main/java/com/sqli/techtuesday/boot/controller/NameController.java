@@ -1,6 +1,10 @@
 package com.sqli.techtuesday.boot.controller;
 
 import com.sqli.techtuesday.boot.model.ClientRepository;
+import com.sqli.techtuesday.boot.util.BadRequestException;
+import com.sqli.techtuesday.boot.util.ResourceNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +20,15 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/names")
 public class NameController {
 
+    private final Logger logger = LoggerFactory.getLogger(getClass());
     private final Pattern expectedPrefixPattern = Pattern.compile("[a-zA-z]+");
     @Autowired
     private ClientRepository clientRepository;
 
-    @RequestMapping("/{prefix}")
-    public ResponseEntity<Object> namesByPrefix(@PathVariable String prefix) {
+    @RequestMapping("/response-entity/{prefix}")
+    public ResponseEntity<Object> namesByPrefixWithResponseEntity(@PathVariable String prefix) {
+        logger.info("received call to: /api/names/response-entity/{}", prefix);
+
         if (!expectedPrefixPattern.matcher(prefix).matches()) {
             return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
         }
@@ -36,5 +43,25 @@ public class NameController {
         }
 
         return new ResponseEntity<Object>(firstNames, HttpStatus.OK);
+    }
+
+    @RequestMapping("/exception-based/{prefix}")
+    public List<String> exceptionBasedNamesByPrefix(@PathVariable String prefix) {
+        logger.info("received call to: /api/names/exception-based/{}", prefix);
+
+        if (!expectedPrefixPattern.matcher(prefix).matches()) {
+            throw new BadRequestException("prefix does not match pattern: " + expectedPrefixPattern.pattern());
+        }
+
+        List<String> firstNames = clientRepository.findAll().stream()
+                .filter(c -> c.getFirstName().startsWith(prefix))
+                .map(c -> c.getFirstName())
+                .collect(Collectors.toList());
+
+        if (firstNames.isEmpty()) {
+            throw new ResourceNotFoundException(prefix);
+        }
+
+        return firstNames;
     }
 }

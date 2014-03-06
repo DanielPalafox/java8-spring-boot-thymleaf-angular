@@ -26,7 +26,6 @@ More info in [spring-boot readme](http://projects.spring.io/spring-boot/docs/spr
 
 ## TODOs
 * using webjars instead of static files
-* thymlead example page
 * unit and integration tests
 * tomcat 8
 * spring-boot-starter
@@ -62,10 +61,6 @@ More info in [spring-boot readme](http://projects.spring.io/spring-boot/docs/spr
 * Jackson support already available: https://github.com/FasterXML/jackson-datatype-jsr310
 ** Customize ObjectMapper in spring boot to register JSR310 module: https://github.com/spring-projects/spring-boot/blob/master/docs/howto.md#customize-the-jackson-objectmapper
 
-#### java.util.Objects
-* Compare and equality on nullable objects
-* Use it to build equals and hashCode methods
-
 ### Spring Boot
 * [Official site and documentation]http://projects.spring.io/spring-boot/
 * [Presentation by Dave Syer, one author]http://presos.dsyer.com/decks/spring-boot-intro.html
@@ -92,6 +87,7 @@ Same as @Controller and @ResponseBody
 * http://www.thymeleaf.org/
 * Integration with SpringMVC
 * Provide an elegant and well-formed way of creating templates that can be correctly displayed by browsers and therefore work also as static prototypes
+* Great interactive tutorial: http://itutorial.thymeleaf.org/
 
 #### Script inlining
 * http://www.thymeleaf.org/doc/html/Using-Thymeleaf.html#script-inlining-javascript-and-dart
