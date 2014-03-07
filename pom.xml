@@ -18,6 +18,8 @@
 
         <!-- Spring boot parent use this property to setup maven compiler plugin -->
         <java.version>1.8</java.version>
+        <!-- Spring boot parent use this property to select tomcat version, let's try latest one ! -->
+        <tomcat.version>8.0.3</tomcat.version>
     </properties>
 
     <dependencies>
@@ -68,11 +70,6 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>4.2.0.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jasper</artifactId>
-            <version>7.0.47</version>
         </dependency>
     </dependencies>
 

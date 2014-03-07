@@ -27,7 +27,6 @@ More info in [spring-boot readme](http://projects.spring.io/spring-boot/docs/spr
 ## TODOs
 * using webjars instead of static files
 * unit and integration tests
-* tomcat 8
 * spring-boot-starter
 * enable csrf (find a good way to include token in angularjs requests)
 
@@ -64,6 +63,8 @@ More info in [spring-boot readme](http://projects.spring.io/spring-boot/docs/spr
 ### Spring Boot
 * [Official site and documentation]http://projects.spring.io/spring-boot/
 * [Presentation by Dave Syer, one author]http://presos.dsyer.com/decks/spring-boot-intro.html
+* [How To]http://spring.io/blog/2014/03/07/deploying-spring-boot-applications
+* [Deployment]http://spring.io/blog/2014/03/07/deploying-spring-boot-applications
 * [Spring MVC]http://docs.spring.io/spring/docs/current/spring-framework-reference/html/spring-web.html
 
 #### @RestController

@@ -18,11 +18,12 @@ public class CustomRandomHeaderFilter extends OncePerRequestFilter {
     private final String headerName;
     private final List<String> headerPossibleValues;
     private final int numberOfPossibleValues;
-    private final Random randomIntGenerator = new Random();
+    private final Random randomIntGenerator;
 
-    public CustomRandomHeaderFilter(String headerName, ImmutableList<String> headerPossibleValues) {
+    public CustomRandomHeaderFilter(String headerName, ImmutableList<String> headerPossibleValues, Random randomIntGenerator) {
         this.headerName = checkNotNull(headerName);
         this.headerPossibleValues = checkNotNull(headerPossibleValues);
+        this.randomIntGenerator = randomIntGenerator;
         this.numberOfPossibleValues = headerPossibleValues.size();
     }
 

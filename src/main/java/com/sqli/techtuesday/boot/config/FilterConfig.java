@@ -13,6 +13,7 @@ import javax.servlet.Filter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Random;
 
 import static com.sqli.techtuesday.boot.util.ToImmutableListCollector.toImmutableList;
 
@@ -34,6 +35,6 @@ public class FilterConfig {
         }
         logger.info("loaded facts: {}", facts);
 
-        return new CustomRandomHeaderFilter("Chuck-Norris-Fact", facts);
+        return new CustomRandomHeaderFilter("Chuck-Norris-Fact", facts, new Random());
     }
 }
