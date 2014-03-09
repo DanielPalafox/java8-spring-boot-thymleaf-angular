@@ -18,14 +18,14 @@ import static java.nio.file.Files.readAllBytes;
 
 @Controller
 @RequestMapping("/api")
-public class SourceController {
+class SourceController {
 
     @Autowired
     private ApplicationContext applicationContext;
 
     @RequestMapping("/source")
     @ResponseBody
-    public Map<String, Object> source(@RequestParam String path) throws IOException {
+    Map<String, Object> source(@RequestParam String path) throws IOException {
         Resource resource = applicationContext.getResource("classpath:/static/" + path);
         if (!resource.exists()) {
             resource = applicationContext.getResource("file:src/main/java/" + path);

@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/filters")
-public class FilterExampleController {
+class FilterExampleController {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @RequestMapping("/header")
-    public void header() {
+    void header() {
         logger.debug("/api/filters/header has been called");
     }
 
     @RequestMapping("/secured")
-    public Authentication secured() {
+    Authentication secured() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         logger.debug("/api/filters/secured has been called by: {}", authentication);
         return authentication;

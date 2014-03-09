@@ -1,7 +1,5 @@
 package com.sqli.techtuesday.boot.controller;
 
-import com.sqli.techtuesday.boot.model.Client;
-import com.sqli.techtuesday.boot.model.JsonClientRepository;
 import com.sqli.techtuesday.boot.model.Recommendation;
 import com.sqli.techtuesday.boot.model.RecommendationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +12,14 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/api/recommandations")
-public class RecommendationController {
+class RecommendationController {
 
     @Autowired
     private RecommendationRepository recommendationRepository;
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public List<Recommendation> getClients() {
+    List<Recommendation> getClients() {
         return recommendationRepository.findAll();
     }
 }

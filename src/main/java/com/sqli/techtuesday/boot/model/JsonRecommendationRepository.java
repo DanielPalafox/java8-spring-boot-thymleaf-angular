@@ -13,7 +13,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static com.sqli.techtuesday.boot.util.ToImmutableListCollector.toImmutableList;
 
 @Repository
-public class JsonRecommendationRepository implements RecommendationRepository {
+class JsonRecommendationRepository implements RecommendationRepository {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -28,7 +28,7 @@ public class JsonRecommendationRepository implements RecommendationRepository {
     }
 
     @PostConstruct
-    public void init() {
+    void init() {
         List<Client> clients = clientRepository.findAll();
         recommendations = clients.stream().flatMap(client -> client.getRecommendations().stream()).distinct().collect(toImmutableList());
         logger.debug("loaded recommendations: {}", recommendations);

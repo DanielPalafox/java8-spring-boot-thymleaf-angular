@@ -1,6 +1,5 @@
 package com.sqli.techtuesday.boot.filter;
 
-import com.google.common.collect.ImmutableList;
 import com.sqli.techtuesday.boot.model.RandomStringRepository;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -9,8 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
-import java.util.Random;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

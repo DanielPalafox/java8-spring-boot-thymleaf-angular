@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/names")
-public class NameController {
+class NameController {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
     private final Pattern expectedPrefixPattern = Pattern.compile("[a-zA-z]+");
@@ -26,7 +26,7 @@ public class NameController {
     private ClientRepository clientRepository;
 
     @RequestMapping("/response-entity/{prefix}")
-    public ResponseEntity<Object> namesByPrefixWithResponseEntity(@PathVariable String prefix) {
+    ResponseEntity<Object> namesByPrefixWithResponseEntity(@PathVariable String prefix) {
         logger.info("received call to: /api/names/response-entity/{}", prefix);
 
         if (!expectedPrefixPattern.matcher(prefix).matches()) {
@@ -46,7 +46,7 @@ public class NameController {
     }
 
     @RequestMapping("/exception-based/{prefix}")
-    public List<String> exceptionBasedNamesByPrefix(@PathVariable String prefix) {
+    List<String> exceptionBasedNamesByPrefix(@PathVariable String prefix) {
         logger.info("received call to: /api/names/exception-based/{}", prefix);
 
         if (!expectedPrefixPattern.matcher(prefix).matches()) {

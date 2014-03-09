@@ -2,7 +2,6 @@ package com.sqli.techtuesday.boot.model;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 import com.sqli.techtuesday.boot.util.ResourceNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,10 +16,8 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.UUID;
 
-import static java.util.stream.Collectors.toList;
-
 @Repository
-public class JsonClientRepository implements ClientRepository {
+class JsonClientRepository implements ClientRepository {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -52,7 +49,7 @@ public class JsonClientRepository implements ClientRepository {
     }
 
     @PostConstruct
-    public void loadClients() {
+    void loadClients() {
         try (InputStream jsonStream = clientsData.getInputStream()) {
             clients = ImmutableList.copyOf(objectMapper.readValue(jsonStream, Client[].class));
         } catch (IOException e) {

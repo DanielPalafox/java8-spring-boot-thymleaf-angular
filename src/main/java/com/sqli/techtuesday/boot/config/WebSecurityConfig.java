@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 
 @Configuration
 @EnableWebMvcSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String USER_ROLE = "USER";
     private static final String SUPER_USER_ROLE = "SUPER_USER";
