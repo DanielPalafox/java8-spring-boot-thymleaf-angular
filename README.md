@@ -1,7 +1,11 @@
 # A little bit of fresh air for Java Web development
 
-This is a sample project showing how simple it is to implement an AngularJS application using Spring Boot as a backend, and Bootstrap as a CSS framework.
-It is freely inspired from the ASP.NET Web API example built by Mathieu and available here: https://github.com/mathieubrun/Samples.AngularBootstrapWebApi
+First goal of this project is to show how simple it is to implement an AngularJS application using Spring Boot as a backend,
+and Bootstrap as a CSS framework. It is freely inspired from the ASP.NET Web API example built by Mathieu and available
+here: https://github.com/mathieubrun/Samples.AngularBootstrapWebApi.
+
+Second goal is to show what are the framework and tools that we can use today (in 2014) to create light and quick to setup
+web applications in Java. It leverage on Java 8, Spring Boot, Spring MVC, Thymleaf and AngularJS.
 
 ## Build and run
 Package and run as standalone application:
@@ -15,14 +19,12 @@ Run inplace and leverage on hot reloading of resources for frontend development:
 
 ## Configure
 Configure application in application.properties in resources folder (in classpath). This file can be overridden with
-a copy and specific properties in current dir, config folder in classpath or config folder under current dir. It also supports
-Spring environment profiles.
+a copy and specific properties in current dir, config folder in classpath or config folder under current dir. It also
+supports Spring environment profiles.
 More info in [spring-boot readme](http://projects.spring.io/spring-boot/docs/spring-boot/README.html#toc_6).
 
 ### Nice to have properties
-- Disable thymleaf cache to allow hot reloading of changes in templates:
-
-    spring.thymeleaf.cache = false
+See in src/main/resources/application.properties
 
 ## TODOs
 * using webjars instead of static files
@@ -83,6 +85,11 @@ Same as @Controller and @ResponseBody
 #### Security
 * See WebSecurityConfig
 
+#### Logging
+* By default use logback
+* Possible to import base configuration:
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
 ### Thymleaf
 * Java XML / XHTML / HTML5 template engine
 * http://www.thymeleaf.org/
@@ -95,3 +102,14 @@ Same as @Controller and @ResponseBody
 * Allows to integrate server side data in javascript
 * Supports JS and Dart
 * Intelligent evaluation (object are transformed to JSON)
+
+### Tests
+#### Code coverage by jacoco
+* Early support for Java 8 on branch https://github.com/jacoco/jacoco/tree/0.7.0-BETA
+* To generate report
+
+    $ mvn jacoco:report
+
+#### Fluent api for assertion
+* assertj: http://joel-costigliola.github.io/assertj/index.html
+* Fork of fest-assert which was no more maintained

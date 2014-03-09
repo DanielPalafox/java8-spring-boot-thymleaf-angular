@@ -1,6 +1,7 @@
 package com.sqli.techtuesday.boot.filter;
 
 import com.google.common.collect.ImmutableList;
+import com.sqli.techtuesday.boot.model.RandomStringRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,32 +25,25 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class CustomRandomHeaderFilterTest {
     @Mock
-    private ImmutableList<String> headerPossibleValues;
-    @Mock
-    private Random random;
+    private RandomStringRepository randomStringRepository;
     @Mock
     private HttpServletRequest request;
     @Mock
     private HttpServletResponse response;
     @Mock
     private FilterChain filterChain;
-
     private String headerName = "the name";
-
     private CustomRandomHeaderFilter filter;
+
     @Before
     public void beforeEachTest() {
-        filter = new CustomRandomHeaderFilter(headerName, headerPossibleValues, random);
+        filter = new CustomRandomHeaderFilter(headerName, randomStringRepository);
     }
 
     @Test
     public void headerIsAddedToResponse() throws IOException, ServletException {
-        int index = 0;
-        int size = 1;
         String value = "the value";
-        given(headerPossibleValues.get(index)).willReturn(value);
-        given(headerPossibleValues.size()).willReturn(size);
-        given(random.nextInt(size)).willReturn(index);
+        given(randomStringRepository.load()).willReturn(value);
 
         filter.doFilterInternal(request, response, filterChain);
 

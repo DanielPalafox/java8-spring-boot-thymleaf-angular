@@ -1,6 +1,7 @@
 package com.sqli.techtuesday.boot.filter;
 
 import com.google.common.collect.ImmutableList;
+import com.sqli.techtuesday.boot.model.RandomStringRepository;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -16,24 +17,18 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class CustomRandomHeaderFilter extends OncePerRequestFilter {
 
     private final String headerName;
-    private final List<String> headerPossibleValues;
-    private final int numberOfPossibleValues;
-    private final Random randomIntGenerator;
+    private final RandomStringRepository randomStringRepository;
 
-    public CustomRandomHeaderFilter(String headerName, ImmutableList<String> headerPossibleValues, Random randomIntGenerator) {
+    public CustomRandomHeaderFilter(String headerName, RandomStringRepository randomStringRepository) {
         this.headerName = checkNotNull(headerName);
-        this.headerPossibleValues = checkNotNull(headerPossibleValues);
-        this.randomIntGenerator = randomIntGenerator;
-        this.numberOfPossibleValues = headerPossibleValues.size();
+        this.randomStringRepository = checkNotNull(randomStringRepository);
     }
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
                                     FilterChain filterChain) throws ServletException, IOException {
 
-        String value = headerPossibleValues.get(randomIntGenerator.nextInt(numberOfPossibleValues));
-        httpServletResponse.addHeader(headerName, value);
-
+        httpServletResponse.addHeader(headerName, randomStringRepository.load());
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
 }

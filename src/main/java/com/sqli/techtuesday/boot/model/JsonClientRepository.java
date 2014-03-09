@@ -27,7 +27,7 @@ public class JsonClientRepository implements ClientRepository {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Value("classpath:/data/clients.json")
+    @Value("file:data/clients.json")
     private Resource clientsData;
 
     private ImmutableList<Client> clients;
