@@ -27,10 +27,8 @@ More info in [spring-boot readme](http://projects.spring.io/spring-boot/docs/spr
 See in src/main/resources/application.properties
 
 ## TODOs
-* using webjars instead of static files
-* unit and integration tests
-* spring-boot-starter
 * enable csrf (find a good way to include token in angularjs requests)
+* mvc test
 
 ## Tips
 
@@ -69,18 +67,55 @@ See in src/main/resources/application.properties
 * [Deployment]http://spring.io/blog/2014/03/07/deploying-spring-boot-applications
 * [Spring MVC]http://docs.spring.io/spring/docs/current/spring-framework-reference/html/spring-web.html
 
-#### @RestController
-Same as @Controller and @ResponseBody
+#### Starters
+* http://projects.spring.io/spring-boot/docs/spring-boot-starters/README.html
+* Set of dependency descriptors for your projects:
+** spring-boot-starter-actuator
+** spring-boot-starter-amqp
+** spring-boot-starter-aop
+** spring-boot-starter-batch
+** spring-boot-starter-data-jpa
+** spring-boot-starter-data-mongodb
+** spring-boot-starter-data-rest
+** spring-boot-starter-integration
+** spring-boot-starter-jdbc
+** spring-boot-starter-jetty
+** spring-boot-starter-log4j
+** spring-boot-starter-logging
+** spring-boot-starter-mobile
+** spring-boot-starter-ops
+** spring-boot-starter-parent
+** spring-boot-starter-redis
+** spring-boot-starter-security
+** spring-boot-starter-shell-crsh
+** spring-boot-starter-shell-remote
+** spring-boot-starter-test
+** spring-boot-starter-thymeleaf
+** spring-boot-starter-tomcat
+** spring-boot-starter-web
+** spring-boot-starter-websocket
+
+#### MVC
+* @RestController is same as @Controller and @ResponseBody
+* Data validation enabled automatically if hibernate-validator in the classpath (see in pom)
+** @Valid on controller inputs
 
 #### Actuators
 * http://projects.spring.io/spring-boot/docs/spring-boot-actuator/docs/Features.html
+* Web endpoints and mbeans
 * Add Maven dependency spring-boot-starter-actuator
 * management.port = 8081
-* http://localhost:8081/configprops
-
-#### Data validation
-* Enabled automatically if hibernate-validator in the classpath (see in pom)
-* @Valid on controller inputs
+* management.contextPath = /admin
+* http://localhost:8080/configprops
+* http://localhost:8080/admin/mappings
+* http://localhost:8080/admin/beans
+* http://localhost:8080/admin/autoconfig
+* http://localhost:8080/admin/trace
+* http://localhost:8080/admin/dump
+* http://localhost:8080/admin/env
+* http://localhost:8080/admin/info
+* http://localhost:8080/admin/metrics
+* http://localhost:8080/admin/health
 
 #### Security
 * See WebSecurityConfig
@@ -89,6 +124,11 @@ Same as @Controller and @ResponseBody
 * By default use logback
 * Possible to import base configuration:
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+#### Webjars
+* Client side dependencies exposed as maven artifacts: http://www.webjars.org/
+* Automatically published under /webjars
+* See example for jquery
 
 ### Thymleaf
 * Java XML / XHTML / HTML5 template engine
@@ -113,3 +153,8 @@ Same as @Controller and @ResponseBody
 #### Fluent api for assertion
 * assertj: http://joel-costigliola.github.io/assertj/index.html
 * Fork of fest-assert which was no more maintained
+
+#### Unit and integration tests
+* Configure failsafe plugin for integration tests
+** Name those tests with *IT
+* Configure Jacoco to generate specific reports for both unit and integration tests

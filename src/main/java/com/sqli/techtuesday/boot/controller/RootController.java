@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 class RootController {
 
-    @Value("${app.version:0.0.0}")
+    @Value("${info.app.version:0.0.0}")
     private String version;
 
     @RequestMapping("/")

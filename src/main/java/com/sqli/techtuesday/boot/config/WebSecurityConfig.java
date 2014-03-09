@@ -12,12 +12,14 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String USER_ROLE = "USER";
     private static final String SUPER_USER_ROLE = "SUPER_USER";
+    private static final String ADMIN = "ADMIN";
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                 .antMatchers("/api/filters/secured").hasRole(SUPER_USER_ROLE)
+                .antMatchers("/admin/**").hasRole(ADMIN)
                 .antMatchers("/**").permitAll();
 
         http
@@ -30,8 +32,10 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                    .withUser("chuck").password("password").roles(USER_ROLE, SUPER_USER_ROLE)
+                .withUser("chuck").password("password").roles(USER_ROLE, SUPER_USER_ROLE)
                 .and()
-                    .withUser("fred").password("password").roles(USER_ROLE);
+                .withUser("fred").password("password").roles(USER_ROLE)
+                .and()
+                .withUser("boss").password("password").roles(ADMIN);
     }
 }
