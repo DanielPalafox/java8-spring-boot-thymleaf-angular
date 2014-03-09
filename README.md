@@ -58,47 +58,47 @@ See in src/main/resources/application.properties
 * The official stuff: https://jcp.org/en/jsr/detail?id=310
 * A nice overview: http://www.javacodegeeks.com/2014/03/a-deeper-look-into-the-java-8-date-and-time-api.html
 * Jackson support already available: https://github.com/FasterXML/jackson-datatype-jsr310
-** Customize ObjectMapper in spring boot to register JSR310 module: https://github.com/spring-projects/spring-boot/blob/master/docs/howto.md#customize-the-jackson-objectmapper
+    * Customize ObjectMapper in spring boot to register JSR310 module: https://github.com/spring-projects/spring-boot/blob/master/docs/howto.md#customize-the-jackson-objectmapper
 
 ### Spring Boot
-* [Official site and documentation]http://projects.spring.io/spring-boot/
-* [Presentation by Dave Syer, one author]http://presos.dsyer.com/decks/spring-boot-intro.html
-* [How To]http://spring.io/blog/2014/03/07/deploying-spring-boot-applications
-* [Deployment]http://spring.io/blog/2014/03/07/deploying-spring-boot-applications
-* [Spring MVC]http://docs.spring.io/spring/docs/current/spring-framework-reference/html/spring-web.html
+* Official site and documentation: http://projects.spring.io/spring-boot/
+* Presentation by Dave Syer, one author: http://presos.dsyer.com/decks/spring-boot-intro.html
+* How To: http://spring.io/blog/2014/03/07/deploying-spring-boot-applications
+* Deployment: http://spring.io/blog/2014/03/07/deploying-spring-boot-applications
+* Spring MVC: http://docs.spring.io/spring/docs/current/spring-framework-reference/html/spring-web.html
 
 #### Starters
 * http://projects.spring.io/spring-boot/docs/spring-boot-starters/README.html
 * Set of dependency descriptors for your projects:
-** spring-boot-starter-actuator
-** spring-boot-starter-amqp
-** spring-boot-starter-aop
-** spring-boot-starter-batch
-** spring-boot-starter-data-jpa
-** spring-boot-starter-data-mongodb
-** spring-boot-starter-data-rest
-** spring-boot-starter-integration
-** spring-boot-starter-jdbc
-** spring-boot-starter-jetty
-** spring-boot-starter-log4j
-** spring-boot-starter-logging
-** spring-boot-starter-mobile
-** spring-boot-starter-ops
-** spring-boot-starter-parent
-** spring-boot-starter-redis
-** spring-boot-starter-security
-** spring-boot-starter-shell-crsh
-** spring-boot-starter-shell-remote
-** spring-boot-starter-test
-** spring-boot-starter-thymeleaf
-** spring-boot-starter-tomcat
-** spring-boot-starter-web
-** spring-boot-starter-websocket
+    * spring-boot-starter-actuator
+    * spring-boot-starter-amqp
+    * spring-boot-starter-aop
+    * spring-boot-starter-batch
+    * spring-boot-starter-data-jpa
+    * spring-boot-starter-data-mongodb
+    * spring-boot-starter-data-rest
+    * spring-boot-starter-integration
+    * spring-boot-starter-jdbc
+    * spring-boot-starter-jetty
+    * spring-boot-starter-log4j
+    * spring-boot-starter-logging
+    * spring-boot-starter-mobile
+    * spring-boot-starter-ops
+    * spring-boot-starter-parent
+    * spring-boot-starter-redis
+    * spring-boot-starter-security
+    * spring-boot-starter-shell-crsh
+    * spring-boot-starter-shell-remote
+    * spring-boot-starter-test
+    * spring-boot-starter-thymeleaf
+    * spring-boot-starter-tomcat
+    * spring-boot-starter-web
+    * spring-boot-starter-websocket
 
 #### MVC
 * @RestController is same as @Controller and @ResponseBody
 * Data validation enabled automatically if hibernate-validator in the classpath (see in pom)
-** @Valid on controller inputs
+    * @Valid on controller inputs
 
 #### Actuators
 * http://projects.spring.io/spring-boot/docs/spring-boot-actuator/docs/Features.html
@@ -156,5 +156,5 @@ See in src/main/resources/application.properties
 
 #### Unit and integration tests
 * Configure failsafe plugin for integration tests
-** Name those tests with *IT
+    * Name those tests with *IT
 * Configure Jacoco to generate specific reports for both unit and integration tests
