@@ -146,9 +146,7 @@ See in src/main/resources/application.properties
 ### Tests
 #### Code coverage by jacoco
 * Early support for Java 8 on branch https://github.com/jacoco/jacoco/tree/0.7.0-BETA
-* To generate report
-
-    $ mvn jacoco:report
+* Add sonatype snapshot repository
 
 #### Fluent api for assertion
 * assertj: http://joel-costigliola.github.io/assertj/index.html
