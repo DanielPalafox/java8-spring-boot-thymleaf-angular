@@ -33,6 +33,7 @@ See in src/main/resources/application.properties
 ## Tips
 
 ### Java 8
+* Download early access from: https://jdk8.java.net/download.html
 
 #### List of new features
 * Mostly lambdas and everything around this (interfaces improvements, functions, streams, enhancement of collection and nio apis)

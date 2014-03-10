@@ -1,5 +1,6 @@
 package com.sqli.techtuesday.boot.controller;
 
+import com.sqli.techtuesday.boot.model.Client;
 import com.sqli.techtuesday.boot.model.ClientRepository;
 import com.sqli.techtuesday.boot.util.BadRequestException;
 import com.sqli.techtuesday.boot.util.ResourceNotFoundException;
@@ -12,9 +13,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 @RestController
 @RequestMapping("/api/names")
@@ -33,10 +37,12 @@ class NameController {
             return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
         }
 
-        List<String> firstNames = clientRepository.findAll().stream()
-                .filter(c -> c.getFirstName().startsWith(prefix))
-                .map(c -> c.getFirstName())
-                .collect(Collectors.toList());
+        List<String> firstNames = new ArrayList<>();
+        for (Client client : clientRepository.findAll()) {
+            if (client.getFirstName().startsWith(prefix)) {
+                firstNames.add(client.getFirstName());
+            }
+        }
 
         if (firstNames.isEmpty()) {
             return new ResponseEntity<Object>(HttpStatus.NOT_FOUND);
@@ -56,7 +62,7 @@ class NameController {
         List<String> firstNames = clientRepository.findAll().stream()
                 .filter(c -> c.getFirstName().startsWith(prefix))
                 .map(c -> c.getFirstName())
-                .collect(Collectors.toList());
+                .collect(toList());
 
         if (firstNames.isEmpty()) {
             throw new ResourceNotFoundException(prefix);
