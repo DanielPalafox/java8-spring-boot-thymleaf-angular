@@ -107,7 +107,7 @@ See in src/main/resources/application.properties
 * Add Maven dependency spring-boot-starter-actuator
 * management.port = 8081
 * management.contextPath = /admin
-* http://localhost:8080/configprops
+* http://localhost:8080/admin/configprops
 * http://localhost:8080/admin/mappings
 * http://localhost:8080/admin/beans
 * http://localhost:8080/admin/autoconfig
