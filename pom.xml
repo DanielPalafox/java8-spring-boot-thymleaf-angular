@@ -9,12 +9,12 @@
         <version>1.0.0.RC4</version>
     </parent>
 
-    <groupId>com.sqli.techtuesday</groupId>
-    <artifactId>AngularBootstrapSpringBoot</artifactId>
+    <groupId>ch.minifig.tryout</groupId>
+    <artifactId>java8-spring-boot-thymleaf-angular</artifactId>
     <version>0.1.0</version>
 
     <properties>
-        <start-class>com.sqli.techtuesday.boot.Application</start-class>
+        <start-class>ch.minifig.tryout.boot.Application</start-class>
 
         <!-- Spring boot parent use this property to setup maven compiler plugin -->
         <java.version>1.8</java.version>
